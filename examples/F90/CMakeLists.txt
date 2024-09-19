@@ -11,6 +11,7 @@ if( HAVE_BUILD_TOOLS )
     list( APPEND tests_sanity
           grib_set_pv
           grib_set_data
+          codes_get_real4_64
           grib_ecc-671 )
     list( APPEND tests_extra
           grib_index
