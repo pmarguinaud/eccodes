@@ -8,6 +8,7 @@ configure_file( include.ctest.sh.in  include.ctest.sh  @ONLY )
 ####################
 if( HAVE_BUILD_TOOLS )
     list( APPEND tests_sanity
+          FMULTE
           codes_ecc-1392
           codes_datetime_julian
           codes_set_paths
