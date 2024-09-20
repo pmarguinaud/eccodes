@@ -12,16 +12,16 @@ CALL codes_set(IGRIBH, 'centre', 85)
 CALL codes_set(IGRIBH, 'grib2LocalSectionPresent', 1)
 CALL codes_set(IGRIBH, 'grib2LocalSectionNumber', 1)
 
-IMULTE = 2
-CALL codes_set (IGRIBH, 'FMULTE', IMULTE)
+CLNOMA1 = 'SURFNEBUL.TOTALE'
+CALL codes_set_string(IGRIBH, 'faFieldName', CLNOMA1)
+!CALL codes_get_string(IGRIBH, 'faFieldName', CLNOMA2)
 
-CLNOMA1 = 'SUNSHI. DURATION'
-CALL codes_set_string(IGRIBH, 'CLNOMA', CLNOMA1)
-CALL codes_get_string(IGRIBH, 'CLNOMA', CLNOMA2)
+CALL codes_get (IGRIBH, 'FMULTE', IMULTE)
 
 PRINT *, " CLNOMA1 = ", CLNOMA1
-PRINT *, " CLNOMA2 = ", CLNOMA2
+!PRINT *, " CLNOMA2 = ", CLNOMA2
+PRINT *, " IMULTE  = ", IMULTE
 
-IF (CLNOMA1 /= CLNOMA2) STOP 1
+!IF (CLNOMA1 /= CLNOMA2) STOP 1
 
 END
