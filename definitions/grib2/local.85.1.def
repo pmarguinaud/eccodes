@@ -15,6 +15,11 @@ transient ZLMULT = 1.;
 # Base value for levels
 transient ZLBASE = 0.;
 
+# Min/max value allowed for this field; default is +/- HUGE (1._8)
+transient ZVALMIN = -1.7976931348623157E+308;
+transient ZVALMAX = +1.7976931348623157E+308;
+
+
 # Name in FA
 ascii[16]     CLNOMA : dump;
 # Encoding method
