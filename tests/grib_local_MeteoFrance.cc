@@ -848,6 +848,8 @@ int main(int argc, char* argv[])
     grib_handle* h = NULL;
     size_t len     = 0;
     const char* outfile;
+    double ZVALMIN, ZVALMAX;
+    int i;
 
     Assert(argc == 2);
     outfile = argv[1];
@@ -863,6 +865,19 @@ int main(int argc, char* argv[])
     GRIB_CHECK(grib_set_long(h, "grib2LocalSectionNumber", 1), 0);
     len = strlen("SURFTEMPERATURE");
     GRIB_CHECK(grib_set_string(h, "faFieldName", "SURFTEMPERATURE", &len), 0);
+
+    GRIB_CHECK(grib_get_double(h, "ZVALMIN", &ZVALMIN), 0);
+    GRIB_CHECK(grib_get_double(h, "ZVALMAX", &ZVALMAX), 0);
+
+    printf (" ZVALMIN, ZVALMAX = %12.7f, %12.7f\n", ZVALMIN, ZVALMAX);
+
+    len = sizeof(values) / sizeof(values[0]);
+    for (i = 0; i < len; i++)
+      if ((values[i] < ZVALMIN) || (ZVALMAX < values[i]))
+        {
+          printf ("Value %e is out of bounds\n", values[i]);
+          abort ();
+        }
 
     GRIB_CHECK(grib_set_long(h, "Nx", 64), 0);
     GRIB_CHECK(grib_set_long(h, "Ny", 64), 0);

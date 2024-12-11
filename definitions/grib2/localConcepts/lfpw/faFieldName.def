@@ -892,6 +892,8 @@
   parameterCategory                =               3;
   parameterNumber                  =              18;
   typeOfFirstFixedSurface          =               1;
+  ZVALMIN                          =             200;
+  ZVALMAX                          =             350;
 }
 'SURFTENS.DMOG.ME' = {
   LSTCUM                           =               1;
