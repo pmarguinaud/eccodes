@@ -49,6 +49,7 @@ list(APPEND test_c_bins
     grib_packing_order
     grib_sh_imag
     grib_sh_spectral_complex
+    ioutr
     grib_lam_bf
     grib_lam_gp)
 
@@ -71,6 +72,7 @@ if( HAVE_BUILD_TOOLS )
     list(APPEND tests_basic
         unit_tests
         julian
+        ioutr
         grib_dump_samples
         bufr_dump_samples
         bufr_check_descriptors
