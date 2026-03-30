@@ -21,7 +21,7 @@ fi
 mkdir -p extra_grib_defs/grib2/localConcepts/lfpw
 
 cat > extra_grib_defs/grib2/localConcepts/lfpw/faModelName.def << EOF
-'arome-pifrance-production-dble-fc'         = { generatingProcessIdentifier = 63; indicatorOfUnitOfTimeRange = "m"; }
+'arome-pifrance-production-oper-fc'         = { generatingProcessIdentifier = 62; indicatorOfUnitOfTimeRange = "m"; }
 EOF
 
 cat > extra_grib_defs/grib2/localConcepts/lfpw/faFieldName.def << EOF
@@ -37,6 +37,8 @@ cat > extra_grib_defs/grib2/localConcepts/lfpw/faFieldName.def << EOF
     LSTCUM = 1 ;
 }
 EOF
+
+export ECCODES_DEFINITION_PATH=$PWD/extra_grib_defs:$ECCODES_DEFINITION_PATH
 
 $EXEC ${test_dir}/ioutr
 
