@@ -71,6 +71,7 @@ list(APPEND test_c_bins
     grib_unpack_subarray
     grib_sh_imag
     grib_spectral
+    ioutr
     grib_lam_bf
     grib_lam_gp)
 
@@ -95,6 +96,7 @@ if( HAVE_BUILD_TOOLS )
         codes_deprecated
         unit_tests
         julian
+        ioutr
         grib_dump_samples
         bufr_dump_samples
         bufr_check_descriptors
