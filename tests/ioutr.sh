@@ -18,27 +18,5 @@ if [ $ECCODES_ON_WINDOWS -eq 1 ]; then
     exit 0
 fi
 
-mkdir -p extra_grib_defs/grib2/localConcepts/lfpw
-
-cat > extra_grib_defs/grib2/localConcepts/lfpw/faModelName.def << EOF
-'arome-pifrance-production-oper-fc'         = { generatingProcessIdentifier = 62; indicatorOfUnitOfTimeRange = "m"; }
-EOF
-
-cat > extra_grib_defs/grib2/localConcepts/lfpw/faFieldName.def << EOF
-"SURFFLU.RAY.SOLA" = {
-    discipline = 0 ;
-    parameterCategory = 4 ;
-    parameterNumber = 9 ;
-    productDefinitionTemplateNumber = 8 ;
-    tablesVersion = 15 ; 
-    typeOfFirstFixedSurface = 1 ;
-    typeOfStatisticalProcessing = 1 ;
-    scaledValueOfFirstFixedSurface = 0 ;
-    LSTCUM = 1 ;
-}
-EOF
-
-export ECCODES_DEFINITION_PATH=$PWD/extra_grib_defs:$ECCODES_DEFINITION_PATH
-
 $EXEC ${test_dir}/ioutr
 
